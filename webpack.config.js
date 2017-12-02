@@ -11,7 +11,7 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                exclude: /node_modules/,
+                exclude: /(node_modules)/,
                 loader: 'vue-loader'
             },
             {
@@ -21,9 +21,7 @@ module.exports = {
             }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './client/src/index.html'
-        })
-    ]
+    resolve: {
+        alias: {vue: 'vue/dist/vue.js'}
+    },
 }

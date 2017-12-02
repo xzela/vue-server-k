@@ -1,2 +1,7 @@
-const FOO = "some string";
-console.log(`i am webpack: ${FOO}`);
+import Vue from 'vue';
+import App from './app.vue';
+
+new Vue({
+  el: '#app',
+  render: h => h(App)
+});
