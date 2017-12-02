@@ -16,7 +16,12 @@
     "express": "^4.16.2",
     "express-vue": "^4.0.14",
     "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
     "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.9",
     "webpack": "^3.9.0"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7"
   }
 }
