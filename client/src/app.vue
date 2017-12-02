@@ -1,6 +1,8 @@
 <template>
     <div id="app">
+        <h1>Loaded</h1>
         <div class="message">{{ message }}</div>
+        <div>{{ other }}</div>
     </div>
 </template>
 
@@ -8,14 +10,15 @@
 export default {
   data () {
     return {
-      message: 'Hello from vue-loader!'
+      message: 'Hello from vue-loader!!',
+      other: 'some other message'
     }
   }
 }
 </script>
 
-<style>
-.message {
-  color: blue;
-}
+<style scoped>
+    .message {
+      color: blue;
+    }
 </style>

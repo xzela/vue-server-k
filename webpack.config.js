@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -21,7 +22,14 @@ module.exports = {
             }
         ]
     },
-    resolve: {
-        alias: {vue: 'vue/dist/vue.js'}
-    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            inject: false,
+            minify: false,
+            template: path.resolve(__dirname, 'client', 'src', 'index.html')
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {warnings: false}
+        })
+    ]
 }
