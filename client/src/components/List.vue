@@ -2,7 +2,7 @@
     <div class="product-list">
         <h2>{{title}}</h2>
         <ul>
-            <li v-for="i in [1,2,3,4,5]">
+            <li v-for="i in list">
                 {{i}}
             </li>
         </ul>
@@ -14,9 +14,17 @@
         name: 'product-list',
         // props: [],
         data() {
+            console.log('List Component loaded');
             return {
-                title: 'List Title'
+                title: 'List Title',
+                list: []
             }
+        },
+        created() {
+            this.$http.get('http://localhost:8081/list')
+                .then(response => {
+                    return this.list = response.data;
+                });
         }
     };
 </script>

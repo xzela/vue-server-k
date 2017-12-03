@@ -1,9 +1,11 @@
 import Vue from 'vue';
+import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
-import App from './app.vue';
+import App from './App.vue';
 import Main from './components/Main.vue';
 import List from './components/List.vue';
 
+Vue.use(VueResource);
 Vue.use(VueRouter);
 
 const routes = [

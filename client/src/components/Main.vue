@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="main">
         <h1>From the Vue Main Component</h1>
         <div class="message">{{ message }}</div>
         <div>{{ other }}</div>
@@ -8,9 +8,9 @@
 
 <script>
 export default {
-    name: 'app',
+    name: 'main',
     data () {
-        console.log('asdfsd');
+        console.log('Main Component loaded!');
         return {
             message: 'Hello from vue-loader!!',
             other: 'some other message'

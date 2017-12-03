@@ -9,7 +9,7 @@
 export default {
     name: 'app',
     data () {
-        console.log('asdfsd');
+        console.log('App Component loaded!');
         return {
             message: 'Hello from vue-loader!!',
             other: 'some other message'
