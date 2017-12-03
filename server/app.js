@@ -12,6 +12,10 @@ members.set('views', path.join(__dirname, config.client.path));
 members.set('view engine', 'html');
 members.use(express.static(path.join(__dirname, config.client.path)));
 
+members.all('*', (req, res, next) => {
+    console.log(req.method, req.url);
+    return next();
+})
 members.get('/', (req, res) => {
     return res.render('index');
 });

@@ -1,7 +1,8 @@
 <template>
     <div id="app">
-        <h1>From the App Component</h1>
-        <router-view></router-view>
+        <h1>From the Vue Main Component</h1>
+        <div class="message">{{ message }}</div>
+        <div>{{ other }}</div>
     </div>
 </template>
 

@@ -8,6 +8,17 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'client', 'build')
     },
+    watchOptions: {
+        ignored: [
+           '*.log',
+           /\.idea/,
+           /client\/build/,
+           /node_modules/
+        ]
+    },
+    devServer: {
+        port: 8900
+    },
     module: {
         rules: [
             {
@@ -28,8 +39,8 @@ module.exports = {
             minify: false,
             template: path.resolve(__dirname, 'client', 'src', 'index.html')
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {warnings: false}
-        })
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {warnings: false}
+        // })
     ]
 }
