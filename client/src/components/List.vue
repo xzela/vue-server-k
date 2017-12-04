@@ -31,6 +31,7 @@
 
 <style scoped>
     h2 {
+        color: red;
         margin-bottom: 40px;
     }
     ul {

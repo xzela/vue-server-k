@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
     h1 {
-        font-style: italic;
+        font-style: bold;
     }
     .message {
       color: blue;
