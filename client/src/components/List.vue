@@ -3,7 +3,7 @@
         <h2>{{title}}</h2>
         <ul>
             <li v-for="i in list">
-                {{i}}
+                <router-link :to="`/list/${i.id}`">{{i.name}}</router-link>
             </li>
         </ul>
     </div>
@@ -37,4 +37,4 @@
     ul {
         list-style-type: none;
     }
-</style>    
+</style>

@@ -8,11 +8,18 @@ const path = require('path');
 const api = express();
 const members = express();
 
+let list = [ 'zero', 'one', 'two', 'three', 'four', 'five' ];
+let json = list.map((i, indx) => {
+    return {id: indx, name: i};
+});
+
+
 members.engine('html', require('ejs').renderFile);
 members.set('views', path.join(__dirname, config.client.path));
 members.set('view engine', 'html');
 members.use(express.static(path.join(__dirname, config.client.path)));
 
+// load up the CORS settings
 api.use(cors());
 api.all('*', (req, res, next) => {
     console.log(req.method, req.url);
@@ -33,8 +40,11 @@ api.get('/', (req, res) => {
 });
 
 api.get('/list', (req, res) => {
-    let list = [ 'zero', 'one', 'two', 'three', 'four', 'five' ];
-    return res.json(list);
+    return res.json(json);
+});
+
+api.get('/list/:id', (req, res) => {
+    return res.json(json[req.params.id]);
 });
 
 members.listen(8080, () => {

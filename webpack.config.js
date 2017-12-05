@@ -8,17 +8,6 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'client', 'build')
     },
-    watchOptions: {
-        ignored: [
-           '*.log',
-           /\.idea/,
-           /client\/build/,
-           /node_modules/
-        ]
-    },
-    devServer: {
-        port: 8900
-    },
     module: {
         rules: [
             {
