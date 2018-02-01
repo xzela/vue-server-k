@@ -4,21 +4,27 @@ const config = require('./config');
 const cors = require('cors');
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const api = express();
 const members = express();
 
-let list = [ 'zero', 'one', 'two', 'three', 'four', 'five' ];
-let json = list.map((i, indx) => {
-    return {id: indx, name: i};
-});
-
+let people = [
+    { id: 0, name: 'Jimmy' },
+    { id: 1, name: 'Jonny' },
+    { id: 2, name: 'Jerry' },
+    { id: 3, name: 'Jerrion' },
+    { id: 4, name: 'Jeffery' },
+    { id: 5, name: 'Jake' }
+];
 
 members.engine('html', require('ejs').renderFile);
 members.set('views', path.join(__dirname, config.client.path));
 members.set('view engine', 'html');
 members.use(express.static(path.join(__dirname, config.client.path)));
 
+api.use(bodyParser.urlencoded({ extended: false }));
+api.use(bodyParser.json());
 // load up the CORS settings
 api.use(cors());
 api.all('*', (req, res, next) => {
@@ -39,12 +45,27 @@ api.get('/', (req, res) => {
     return res.json({message: 'api'})
 });
 
-api.get('/list', (req, res) => {
-    return res.json(json);
+api.get('/people', (req, res) => {
+    return res.json(people);
 });
 
-api.get('/list/:id', (req, res) => {
-    return res.json(json[req.params.id]);
+api.get('/people/:id', (req, res) => {
+    let person = people.find(p => {
+        if (p.id === Number(req.params.id)) {
+            return p;
+        }
+    });
+    return res.json(person);
+});
+
+api.post('/people', (req, res) => {
+    let id = people.length;
+    let obj = {
+        id,
+        name: req.body.name
+    };
+    people.push(obj);
+    return res.json(people);
 });
 
 members.listen(8080, () => {

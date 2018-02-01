@@ -3,7 +3,7 @@
         <h2>{{title}}</h2>
         <ul>
             <li v-for="i in list">
-                <router-link :to="`/list/${i.id}`">{{i.name}}</router-link>
+                <router-link :to="`/people/${i.id}`">{{i.name}}</router-link>
             </li>
         </ul>
     </div>
@@ -12,7 +12,6 @@
 <script>
     export default {
         name: 'product-list',
-        // props: [],
         data() {
             console.log('List Component loaded');
             return {
@@ -21,7 +20,7 @@
             }
         },
         created() {
-            this.$http.get('http://localhost:8081/list')
+            this.$http.get('http://localhost:8081/people')
                 .then(response => {
                     return this.list = response.data;
                 });

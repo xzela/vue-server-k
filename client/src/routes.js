@@ -3,6 +3,7 @@
 import Item from './components/Item.vue';
 import Main from './components/Main.vue';
 import List from './components/List.vue';
+import Add from './components/Add.vue';
 
 const routes = [
     {
@@ -14,11 +15,15 @@ const routes = [
         component: Main,
     },
     {
-        path: '/list',
+        path: '/people',
         component: List
     },
     {
-        path: '/list/:id',
+        path: '/add',
+        component: Add
+    },
+    {
+        path: '/people/:id',
         component: Item,
         props: {
             id: true

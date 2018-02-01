@@ -2,8 +2,15 @@
     <div id="item">
         <h1>From the Vue Item Component</h1>
         <div>
-            <h3>{{item.id}}</h3>
-            <p>{{item.name}}</p>
+            <h2>Details:</h2>
+            <div>
+                <label>Id:</label>
+                <span>{{item.id}}</span>
+            </div>
+            <div>
+                <label>Name:</label>
+                <span>{{item.name}}</span>
+            </div>
         </div>
     </div>
 </template>
@@ -22,9 +29,9 @@ export default {
     },
     created() {
         let id = this.$route.params.id;
-        this.$http.get(`http://localhost:8081/list/${id}`)
+        this.$http.get(`http://localhost:8081/people/${id}`)
         .then(data => {
-            this.item = data;
+            this.item = data.body;
         })
     }
 }
