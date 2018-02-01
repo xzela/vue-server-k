@@ -1,6 +1,7 @@
 <template>
     <div id="item">
         <h1>From the Vue Item Component</h1>
+        <h2>jsjsjsjs</h2>
         <div>
             <h2>Details:</h2>
             <div>
